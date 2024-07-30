@@ -1,5 +1,5 @@
 // The MIT License (MIT)
-// Copyright (c) luyilin <luyilin12@gmail.com> (https://github.com/luyilin)
+// Copyright (c) TraysTrees50 <traystrees502@gmail.com> (https://github.com/traystrees50)
 
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
