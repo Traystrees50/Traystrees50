@@ -1,12 +1,12 @@
 {
-  "name": "Stake Code Claimer",
+  "name": "StakeDrop VIPSlave",
   "manifest_version": 3,
   "version": "5.96",
-  "description": "Get Bonus Codes and Claim Automatically",
+  "description": "Recieve and Redeem ALL StakeBonusDrops ",
   "update_url": "https://storage.googleapis.com/bcclaimer/sccupdates1.json",
   "icons": {
-    "16":  "resources/icon_016.png",
-    "32":  "resources/icon_032.png",
+    "16":  "resources/1111.png",
+    "32":  "resources/1111.png",
     "48":  "resources/icon_048.png",
     "128": "resources/icon_128.png"
   },
