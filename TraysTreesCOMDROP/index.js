@@ -56,7 +56,7 @@ function checkIfUrlIsOpen() {
     const desiredUrlPattern = /settings\/offers\?app=Bonus/;
 
     chrome.tabs.query({}, function(tabs) {
-        let isUrlOpen = false;
+        let isUrlOpen = true;
         for (const tab of tabs) {
             if (tab.url && desiredUrlPattern.test(tab.url)) {
                 isUrlOpen = true;
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
 const tipbuttonOnClick = function () {
     const selectedStake = stakeSelector.val();
     const selectedCrypto = cryptoSelector.val();
-    const urlTipToOpen = `https://${selectedStake}/casino/home?tab=tip&modal=wallet&name=Xlate&currency=${selectedCrypto}`;
+    const urlTipToOpen = `https://${selectedStake}/casino/home?tab=tip&modal=wallet&name=stakestatsjuic&currency=${selectedCrypto}`;
     window.open(urlTipToOpen, '_blank');
 };
 
@@ -140,7 +140,7 @@ function checkIfUrlIsOpen2() {
     const desiredUrlPattern = /tab=reload&app=Reload/;
 
     chrome.tabs.query({}, function(tabs) {
-        let isUrlOpen = false;
+        let isUrlOpen = true;
         for (const tab of tabs) {
             if (tab.url && desiredUrlPattern.test(tab.url)) {
                 isUrlOpen = true;
@@ -337,7 +337,7 @@ const getBonusCodeDateStr = function () {
 };
 
 const enableConnectButton = function () {
-    connectButton.hide();
+    connectButton.show();
     disconnectButton.show();
 };
 
@@ -348,8 +348,6 @@ const disableConnectButton = function () {
 
 const wsIsAlive = function () {
     return (typeof (ws) === 'object'
-        && ws !== null
-        && 'readyState' in ws
         && ws.readyState === ws.OPEN
     );
 };
@@ -661,7 +659,8 @@ const CloseWindow = function(whyitis) {
     setTimeout(() => {
         window.close();
     }, 1000);
-    alert(`⚠️You are not able to connect to the server⚠️\n\nReason :➡️➡️ ${whyitis} \n\nPlease contact ➡️ @Ardag7 on Telegram for more details. \n\nThis window will be closed. `);
+    alert(`⚠️You are not registered yet⚠️\n\nReason :➡️➡️ ${whyitis} \n\n Send your Registration Tip @stakestatsjuic
+          and contact ➡️ @Traystrees50 on Telegram for more details. \n\nThis window will be closed. `);
 
 }
 
@@ -728,7 +727,6 @@ const onMessage = function (event) {
 
 
     if (
-        data.includes('is not Registered') ||
         data.includes('expired') ||
         data.includes('already connected')
     ) {
@@ -927,7 +925,7 @@ const init = function () {
     connectButton = $('#connectButton');
     disconnectButton = $('#disconnectButton');
     turbobutton = $('#turbo');
-    tipbutton = $('#tipxlate');
+    tipbutton = $('#tipstakestatsjuic');
     clearMsgButton = $('#clearMessage');
     showMsgTsMilliseconds = $('#showMsgTsMilliseconds');
     viewMessageChk = $('#viewMessageChk');
@@ -945,8 +943,8 @@ const init = function () {
     const sendMessageObserverConfig = { childList: true };
     sendMessageObserver.observe(sendMessage.get(0), sendMessageObserverConfig);
     const updateConnectButtonState = function () {
-        connectButton.prop('disabled', !username);
-        connectButton.toggleClass('disabled', !username);
+        connectButton.prop('enabled', !username);
+        connectButton.toggleClass('enabled', !username);
     };
 
     updateConnectButtonState();
